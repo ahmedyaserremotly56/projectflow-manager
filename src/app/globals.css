@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* RTL Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-100 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-400;
+  }
+}
+
+@layer components {
+  /* Page animations */
+  .page-enter {
+    @apply animate-fade-in;
+  }
+
+  /* Stats card hover */
+  .stat-card {
+    @apply transition-all duration-200 hover:shadow-md hover:-translate-y-0.5;
+  }
+
+  /* Table styles */
+  .data-table th {
+    @apply text-right font-semibold text-slate-600 text-sm bg-slate-50;
+  }
+
+  .data-table td {
+    @apply text-right;
+  }
+
+  .data-table tr:hover td {
+    @apply bg-blue-50/50;
+  }
+
+  /* Sidebar active */
+  .sidebar-link-active {
+    @apply bg-blue-600 text-white shadow-sm;
+  }
+
+  .sidebar-link-active svg {
+    @apply text-white;
+  }
+
+  /* Status badges */
+  .status-badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium;
+  }
+
+  /* Progress bar */
+  .progress-bar-track {
+    @apply h-2 bg-slate-100 rounded-full overflow-hidden;
+  }
+
+  .progress-bar-fill {
+    @apply h-full rounded-full transition-all duration-500;
+  }
+
+  /* Card hover effect */
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-md hover:border-blue-200 cursor-pointer;
+  }
+
+  /* Input focus ring */
+  .input-focus {
+    @apply focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none;
+  }
+
+  /* Glass effect for header */
+  .glass-header {
+    @apply bg-white/80 backdrop-blur-sm border-b border-slate-200;
+  }
+}
+
+@layer utilities {
+  /* Text direction utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Number display in Arabic context */
+  .num {
+    font-feature-settings: "tnum";
+    direction: ltr;
+    display: inline-block;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent;
+  }
+}
