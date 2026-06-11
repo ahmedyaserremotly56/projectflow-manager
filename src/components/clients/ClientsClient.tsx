@@ -19,8 +19,10 @@ interface ClientRow {
   name: string;
   phone: string;
   email: string;
-  company?: string;
-  notes?: string;
+
+  company: string | null;
+  notes: string | null;
+
   total_projects: number;
   active_projects: number;
   total_revenue: number;
